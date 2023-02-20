@@ -1,0 +1,6 @@
+package('ConcertoCore')
+    set_homepage('https://github.com/ConcertoEngine/ConcertoCore')
+    set_description('Concerto engine core library')
+    set_license('MIT')
+    set_kind('library')
+    add_urls('https://github.com/ConcertoEngine/ConcertoCore.git')

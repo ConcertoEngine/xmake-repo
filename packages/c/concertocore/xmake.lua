@@ -8,5 +8,4 @@ package('ConcertoCore')
 
     on_install(function (package)
         import("package.tools.xmake").install(package)
-        os.cp("Include/**", package:installdir('include', 'Concerto', 'Core'))
     end)

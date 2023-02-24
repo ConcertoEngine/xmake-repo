@@ -5,6 +5,7 @@ package('ConcertoCore')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/ConcertoCore.git')
     add_versions('2023.02.23', '29b0bd6c74561ce194af595a99a6018d6c924706')
+    add_deps("nlohmann_json")
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

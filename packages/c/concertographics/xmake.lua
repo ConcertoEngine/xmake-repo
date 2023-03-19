@@ -4,7 +4,7 @@ package('ConcertoGraphics')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/ConcertoGraphics.git')
-    add_versions('2023.03.19', '3fb92e1a79c7a2ca5765d4549b1144ef4790a4b2')
+    add_versions('2023.03.19+1', 'b8a8ba60e77b97818dcd61e127b2c956fc56ff9c')
     add_deps('ConcertoCore', 'vulkan-loader', 'vulkan-memory-allocator', 'vk-bootstrap', 'glm', 'stb', 'glfw', 'imgui')
 
     on_install(function (package)

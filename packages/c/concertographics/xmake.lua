@@ -5,7 +5,7 @@ package('ConcertoGraphics')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/ConcertoGraphics.git')
     add_versions('2023.08.09', '4caf73756748689c9b7adfcdf94ba74bc6ea1a32')
-    add_deps('ConcertoCore', 'vulkan-loader', 'vulkan-memory-allocator', 'vk-bootstrap', 'glm', 'stb', 'glfw', 'imgui')
+    add_deps('ConcertoCore', 'vulkan-loader', 'vulkan-memory-allocator', 'glm', 'stb', 'glfw', 'imgui')
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

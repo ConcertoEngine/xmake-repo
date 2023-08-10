@@ -1,0 +1,12 @@
+package('Concerto')
+    set_homepage('https://github.com/ConcertoEngine/Concerto')
+    set_description('Concerto engine')
+    set_license('MIT')
+    set_kind('library')
+    add_urls('https://github.com/ConcertoEngine/Concerto.git')
+    add_versions('2023.08.10', '262a8e450ab6eb43a560bf91209418d0a8c58ea7')
+    add_deps('ConcertoCore', 'ConcertoGraphics')
+
+    on_install(function (package)
+        import("package.tools.xmake").install(package)
+    end)

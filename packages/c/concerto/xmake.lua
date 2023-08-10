@@ -4,7 +4,7 @@ package('Concerto')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
-    add_versions('2023.08.10', '262a8e450ab6eb43a560bf91209418d0a8c58ea7')
+    add_versions('2023.08.10', 'a5b0918bb00da41a7404c0d591a8648b95745ccd')
     add_deps('ConcertoCore', 'ConcertoGraphics')
 
     on_install(function (package)

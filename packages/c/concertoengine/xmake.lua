@@ -5,6 +5,7 @@ package('ConcertoEngine')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
     add_versions('2023.16.11+4', '2b5c29b94f366e5666837ba2dfe3fe978e108d59')
+    add_deps('ConcertoCore', 'nazaraengine')
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

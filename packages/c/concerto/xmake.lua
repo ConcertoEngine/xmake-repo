@@ -5,7 +5,6 @@ package('Concerto')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
     add_versions('2023.16.11', '3ba37fea5cebd22bff9899cd70dd1014b6c9b7e1')
-    add_deps('ConcertoGraphics')
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

@@ -4,7 +4,7 @@ package('Concerto')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
-    add_versions('2023.16.11', '3ba37fea5cebd22bff9899cd70dd1014b6c9b7e1')
+    add_versions('2023.16.11+1', '920889509308df5de6af72c37bb16a2bb7bac13c')
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

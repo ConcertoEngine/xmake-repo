@@ -4,7 +4,7 @@ package('ConcertoEngine')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
-    add_versions('2023.11.17', 'ec459056d0f8ba9bfa8979a3114d44db77d2bc25')
+    add_versions('2023.11.18', '63ba81a103435e977ce251c45eb398f2b9d8c760')
     add_deps('ConcertoCore')
     add_deps("nazaraengine", {debug=is_mode('debug'), configs={ utility = true,
                                                                 audio = false,

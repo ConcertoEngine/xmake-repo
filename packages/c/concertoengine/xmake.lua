@@ -4,7 +4,7 @@ package('ConcertoEngine')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
-    add_versions('2023.11.19', 'f5955d67eacb04dab8dc78c9d8adae4ca0b4fd2f')
+    add_versions('2023.11.19+1', 'c1e618483e1e14226d8905fcd7c1983a2f040281')
     add_deps('ConcertoCore')
 
     on_load(function (package)

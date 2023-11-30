@@ -8,18 +8,20 @@ package('ConcertoEngine')
     add_deps('ConcertoCore')
 
     on_load(function (package)
-        package:add('deps', 'nazaraengine', {configs={ debug = package:is_debug(),
-                                                    utility = true,
-                                                    audio = false,
-                                                    renderer = true,
-                                                    joltphysics3d = false,
-                                                    bulletphysics3d = false,
-                                                    graphics = true,
-                                                    plugin_assimp = false,
-                                                    platform = true,
-                                                    chipmunkphysics2d = false,
-                                                    widgets = false,
-                                                    network = false}})
+        if package:config("graphics") then
+            package:add('deps', 'nazaraengine', {configs={ debug = package:is_debug(),
+                                                        utility = true,
+                                                        audio = false,
+                                                        renderer = true,
+                                                        joltphysics3d = false,
+                                                        bulletphysics3d = false,
+                                                        graphics = true,
+                                                        plugin_assimp = false,
+                                                        platform = true,
+                                                        chipmunkphysics2d = false,
+                                                        widgets = false,
+                                                        network = false}})
+        end
     end)
 
     on_install(function (package)

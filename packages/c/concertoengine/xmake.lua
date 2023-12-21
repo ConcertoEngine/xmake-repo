@@ -19,12 +19,12 @@ package('ConcertoEngine')
         }
     }
 
-    for name, data in orderpairs(modules) do
+    for name, data in table.orderpairs(modules) do
         add_configs(name, { description = "Enable " .. name .. " module", default = true, type = "boolean" })
     end
 
     on_load(function (package)
-        for name, data in orderpairs(modules) do
+        for name, data in table.orderpairs(modules) do
             if package:config(name) then
                 for _, dep in ipairs(data.Dependencies) do
                     package:add('deps', dep)

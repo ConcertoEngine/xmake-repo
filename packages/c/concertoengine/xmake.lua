@@ -7,7 +7,30 @@ package('ConcertoEngine')
     add_versions('2023.11.30+2', '84e58e6baad9786953bfbbcdec878070bd2f1493')
     add_deps('ConcertoCore')
 
+
+    local modules = {
+        Ecs = {
+            Option = "ecs",
+            Dependencies = {},
+        },
+        Graphics = {
+            Option = "graphics",
+            Dependencies = { "ConcertoEngineEcs" },
+        }
+    }
+
+    for name, data in orderpairs(modules) do
+        add_configs(name, { description = "Enable " .. name .. " module", default = true, type = "boolean" })
+    end
+
     on_load(function (package)
+        for name, data in orderpairs(modules) do
+            if package:config(name) then
+                for _, dep in ipairs(data.Dependencies) do
+                    package:add('deps', dep)
+                end
+            end
+        end
         if package:config("graphics") then
             package:add('deps', 'nazaraengine', {configs={ debug = package:is_debug(),
                                                         utility = true,

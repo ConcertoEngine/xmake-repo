@@ -9,10 +9,12 @@ package('ConcertoEngine')
 
     local modules = {
         Ecs = {
+            name = "ecs",
             Option = "ecs",
             Dependencies = {},
         },
         Graphics = {
+            name = "graphics",
             Option = "graphics",
             Dependencies = { "ConcertoEngineEcs" },
         }

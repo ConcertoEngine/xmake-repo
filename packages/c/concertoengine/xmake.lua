@@ -7,7 +7,6 @@ package('ConcertoEngine')
     add_versions('2023.11.30+2', '84e58e6baad9786953bfbbcdec878070bd2f1493')
     add_deps('ConcertoCore')
 
-
     local modules = {
         Ecs = {
             Option = "ecs",
@@ -20,7 +19,7 @@ package('ConcertoEngine')
     }
 
     for name, data in table.orderpairs(modules) do
-        add_configs(name, { description = "Enable " .. name .. " module", default = true, type = "boolean" })
+        add_configs(data.name, { description = "Enable " .. data.name .. " module", default = true, type = "boolean" })
     end
 
     on_load(function (package)

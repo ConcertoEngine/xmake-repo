@@ -4,7 +4,7 @@ package('ConcertoEngine')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/Concerto.git')
-    add_versions('2024.01.27', '04b9712bd2e52b241e2ad0b10e804aa4b1d7a8cf')
+    add_versions('2024.01.28', '2f1aec942ce19e7fe0703fd17cf264d63ec414a7')
     add_deps('ConcertoCore')
 
     local modules = {
@@ -37,12 +37,12 @@ package('ConcertoEngine')
                                                         utility = true,
                                                         audio = false,
                                                         renderer = true,
-                                                        joltphysics3d = false,
-                                                        bulletphysics3d = false,
+                                                        joltphysics = false,
+                                                        bulletphysics = false,
                                                         graphics = true,
                                                         plugin_assimp = false,
                                                         platform = true,
-                                                        chipmunkphysics2d = false,
+                                                        chipmunkphysics = false,
                                                         widgets = false,
                                                         network = false}})
         end

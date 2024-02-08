@@ -4,7 +4,7 @@ package('ConcertoCore')
     set_license('MIT')
     set_kind('library')
     add_urls('https://github.com/ConcertoEngine/ConcertoCore.git')
-    add_versions('2024.01.27+1', '03ffba4f7fdd7f8917b5592b858e848eda2e0db2')
+    add_versions('2024.02.08', '0fd6993e4f8087ee4654bdb4ae41307b7df3a25b')
     add_deps("nlohmann_json")
 
     on_install(function (package)

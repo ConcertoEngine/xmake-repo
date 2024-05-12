@@ -1,4 +1,4 @@
-package('concertoengine')
+package('concerto-engine')
     set_homepage('https://github.com/ConcertoEngine/Concerto')
     set_description('Concerto engine')
     set_license('MIT')

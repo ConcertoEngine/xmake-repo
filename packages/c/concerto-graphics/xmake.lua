@@ -1,4 +1,4 @@
-package('concertographics')
+package('concerto-graphics')
     set_homepage('https://github.com/ConcertoEngine/ConcertoGraphics')
     set_description('Concerto engine graphics library')
     set_license('MIT')

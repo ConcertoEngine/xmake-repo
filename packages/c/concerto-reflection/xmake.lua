@@ -8,6 +8,11 @@ package("concerto-reflection")
     add_versions("2024.12.12", "2a5c9e2e111565e23c3a431694c0994f998e2bcb")
     add_deps("concerto-core", "pugixml", "eventpp", "catch2")
 
+    add_config("std-lib", { description = "Enable reflection core library", default = true, type = "boolean" })
+
     on_install(function (package)
-        import("package.tools.xmake").install(package)
+        local configs = {
+            std_lib = package:config("std-lib")
+        }
+        import("package.tools.xmake").install(package, configs)
     end)

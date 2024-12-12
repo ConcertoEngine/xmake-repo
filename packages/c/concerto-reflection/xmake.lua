@@ -5,7 +5,7 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("git@github.com:ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2024.12.12+2", "7ee1bd08643f0abf0bd4619e2c5f7ead374d1e3c")
+    add_versions("2024.12.12+3", "24983f26c75ff0c7f309caac5e364b8c965b7c0d")
     add_deps("concerto-core", "pugixml", "eventpp", "catch2")
 
     add_configs("std_lib", { description = "Enable reflection core library", default = true, type = "boolean" })

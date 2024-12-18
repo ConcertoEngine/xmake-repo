@@ -2,7 +2,7 @@ rule("xml_reflect")
     set_extensions(".xml")
     add_deps("@concerto-reflection/find_cct_pkg_generator")
     on_config(function (target)
-        for _, filepath in ipairs(target:sourcebatches()["xml_reflect"].sourcefiles) do
+        for _, filepath in ipairs(target:sourcebatches()["@concerto-reflection/xml_reflect"].sourcefiles) do
             local generatedFile = path.join(target:autogendir(), "Reflection", path.basename(filepath))
             target:add("headerfiles", path.join(target:autogendir(), "(Reflection", path.basename(filepath) ..".hpp)"))
             target:add("includedirs", path.join(target:autogendir(), "Reflection"), {public = true})

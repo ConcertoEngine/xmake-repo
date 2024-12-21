@@ -5,7 +5,7 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("git@github.com:ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2024.12.21", "6e5c2fa26269169fa1e766d056c722d1363a7363")
+    add_versions("2024.12.21+1", "bfaf276975e5527278f5e8a9f80be4db55249d76")
     add_deps("concerto-core", "pugixml", "eventpp", "catch2")
 
     on_install(function (package)

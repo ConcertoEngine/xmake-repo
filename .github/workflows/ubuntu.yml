@@ -25,6 +25,11 @@ jobs:
           actions-cache-folder: '.xmake-cache'
           actions-cache-key: 'ubuntu'
 
+      - name: Set gcc/g++ to 13
+        run: |
+          ln -s /usr/bin/g++-13 /usr/local/bin/g++
+          ln -s /usr/bin/gcc-13 /usr/local/bin/gcc
+
       - name: Installation
         run: |
           # TODO we will remove it later

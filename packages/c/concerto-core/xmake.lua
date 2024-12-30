@@ -13,3 +13,14 @@ package('concerto-core')
         end
         import("package.tools.xmake").install(package)
     end)
+
+    on_test(function (package)
+        assert(package:check_cxxsnippets({test = [[
+            #include <string>
+            #include <Concerto/Core/Types.hpp>
+            #include <Concerto/Core/Result.hpp>
+            void test() {
+                cct::Result<cct::Int32, std::string> result(28);
+            }
+        ]]}, {configs = {languages = "c++20"}}))
+    end)

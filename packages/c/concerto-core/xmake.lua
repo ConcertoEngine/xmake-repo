@@ -19,8 +19,11 @@ package('concerto-core')
             #include <string>
             #include <Concerto/Core/Types.hpp>
             #include <Concerto/Core/Result.hpp>
+            #include <Concerto/Core/DynLib.hpp>
             void test() {
                 cct::Result<cct::Int32, std::string> result(28);
+                DynLib lib;
+                bool ok = lib.IsLoaded();
             }
         ]]}, {configs = {languages = "c++20"}}))
     end)

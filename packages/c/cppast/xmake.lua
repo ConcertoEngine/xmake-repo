@@ -7,7 +7,7 @@ package("cppast")
     add_versions("2024.06.14", "5329e377ab9b9ab9309e9641f3fcda04366a449a")
 
     add_deps("cmake", "debug_assert", "tiny-process-library", "type_safe")
-    add_deps("llvm2", {kind = "library"})
+    add_deps("llvm", {kind = "library"})
 
     on_install(function (package)
         io.replace("CMakeLists.txt", [[ OR (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)]], "", { plain = true })

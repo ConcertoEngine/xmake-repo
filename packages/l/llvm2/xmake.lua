@@ -1,4 +1,4 @@
-package("llvm")
+package("llvm2")
     set_kind("toolchain")
     set_homepage("https://llvm.org/")
     set_description("The LLVM Compiler Infrastructure")

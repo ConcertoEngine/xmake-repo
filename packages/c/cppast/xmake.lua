@@ -1,4 +1,4 @@
-package("cppast2")
+package("cppast")
     set_homepage("https://github.com/foonathan/cppast")
     set_description("Library to parse and work with the C++ AST")
     set_license("MIT")

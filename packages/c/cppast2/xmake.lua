@@ -9,7 +9,7 @@ package("cppast2")
     add_deps("cmake", "debug_assert", "tiny-process-library", "type_safe")
     add_deps("llvm2", {kind = "library"})
 
-    on_install("linux", function (package)
+    on_install(function (package)
         io.replace("CMakeLists.txt", [[ OR (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)]], "", { plain = true })
         io.replace("src/CMakeLists.txt", "-Werror -Wall -Wextra", "-Wall -Wextra", { plain = true })
         local configs = {"-DCPPAST_BUILD_TOOL=ON"}

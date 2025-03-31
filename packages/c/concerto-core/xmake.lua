@@ -1,10 +1,10 @@
-package('concerto-core')
-    set_homepage('https://github.com/ConcertoEngine/ConcertoCore')
-    set_description('Concerto engine core library')
-    set_license('MIT')
-    set_kind('library')
-    add_urls('https://github.com/ConcertoEngine/ConcertoCore.git')
-    add_versions('2025.03.31', 'b31cf82163f39cf477704786ad90b585bc3dd459')
+package("concerto-core")
+    set_homepage("https://github.com/ConcertoEngine/ConcertoCore")
+    set_description("Concerto engine core library")
+    set_license("MIT")
+    set_kind("library")
+    add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
+    add_versions("2025.03.31", "b31cf82163f39cf477704786ad90b585bc3dd459")
     add_deps("enet")
 
 

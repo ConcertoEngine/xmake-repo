@@ -16,8 +16,12 @@ package("concerto-core")
         if not package:config("shared") then
             package:add("defines", "CCT_LIB_STATIC")
         end
+
         local configs = {}
         configs.static = not package:config("shared")
+        configs.tests = false
+        configs.mode = package:is_debug() and "debug" or "release"
+
         import("package.tools.xmake").install(package, configs)
     end)
 

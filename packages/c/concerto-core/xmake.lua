@@ -4,7 +4,7 @@ package("concerto-core")
     set_license("MIT")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
-    add_versions("2025.03.31", "b31cf82163f39cf477704786ad90b585bc3dd459")
+    add_versions("2025.04.02", "684979b2286bbe039248cc186ad689c96c3fc733")
     add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
@@ -21,6 +21,7 @@ package("concerto-core")
         configs.static = not package:config("shared")
         configs.tests = false
         configs.mode = package:is_debug() and "debug" or "release"
+        configs.override_runtime = false
 
         import("package.tools.xmake").install(package, configs)
     end)

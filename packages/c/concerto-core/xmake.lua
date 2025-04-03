@@ -4,7 +4,7 @@ package("concerto-core")
     set_license("MIT")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
-    add_versions("2025.04.03", "6e8fe2ec9e09d4fb080a7638125caf2f8dccceb4")
+    add_versions("2025.04.03+1", "6e8fe2ec9e09d4fb080a7638125caf2f8dccceb4")
     add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
@@ -14,7 +14,7 @@ package("concerto-core")
             package:add("cxxflags", "/Zc:preprocessor")
         end
         if not package:config("shared") then
-            package:add("defines", "CCT_LIB_STATIC")
+            package:add("defines", "CCT_CORE_LIB_STATIC")
         end
 
         local configs = {}

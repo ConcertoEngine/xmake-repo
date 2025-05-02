@@ -7,15 +7,23 @@ package("concerto-core")
     add_versions("2025.05.2", "2c63cf33caa25a3a3f2d08f9edc6de1967799774")
     add_deps("enet")
 
+    add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
 
     on_install(function (package)
         if package:has_tool("cxx", "cl", "clang_cl") then
             package:add("cxxflags", "/Zc:preprocessor")
         end
         if not package:config("shared") then
-            package:add("defines", "CCT_LIB_STATIC")
+            package:add("defines", "CCT_CORE_LIB_STATIC")
         end
-        import("package.tools.xmake").install(package)
+
+        local configs = {}
+        configs.static = not package:config("shared")
+        configs.tests = false
+        configs.mode = package:is_debug() and "debug" or "release"
+        configs.override_runtime = false
+
+        import("package.tools.xmake").install(package, configs)
     end)
 
     on_test(function (package)

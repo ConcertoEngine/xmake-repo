@@ -4,7 +4,7 @@ package("concerto-core")
     set_license("MIT")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
-    add_versions("2025.05.18", "3df346ebca902034628d0e61796a18e7becbfe95")
+    add_versions("2025.05.18+1", "67538799450959036353ac75e5f39cb03798dfdd")
     add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})

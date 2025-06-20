@@ -8,6 +8,7 @@ package("concerto-core")
     add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
+    add_configs("asserts", {description = "Enable asserts.", default = false, type = "boolean"})
 
     on_install(function (package)
         if package:has_tool("cxx", "cl", "clang_cl") then
@@ -22,6 +23,7 @@ package("concerto-core")
         configs.tests = false
         configs.mode = package:is_debug() and "debug" or "release"
         configs.override_runtime = false
+        configs.asserts = package:config("asserts")
 
         import("package.tools.xmake").install(package, configs)
     end)

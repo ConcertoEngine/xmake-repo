@@ -5,8 +5,8 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2025.01.12+5", "060dc59757a9019c37391e5d039cba842d17d9f4")
-    add_deps("concerto-core", "pugixml")
+    add_versions("2025.07.04", "d631c715aa6d2fa965150cca0973056cf67d25c1")
+    add_deps("concerto-core", "toml11")
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

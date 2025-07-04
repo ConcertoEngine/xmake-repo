@@ -5,7 +5,7 @@ package("concerto-graphics")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoGraphics.git")
     
-    add_versions("2025.05.2", "c3f58d7464c863409585d3e0c74004c9b6d42e51")
+    add_versions("2025.06.16", "9e84472117a11087414270124129d3838abe5fa9")
 
     add_configs("shared", {description = "Build shared library.", default = true, type = "boolean", readonly = true})
     

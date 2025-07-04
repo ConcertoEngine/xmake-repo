@@ -4,10 +4,11 @@ package("concerto-core")
     set_license("MIT")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
-    add_versions("2025.05.18+1", "67538799450959036353ac75e5f39cb03798dfdd")
+    add_versions("2025.06.20", "85e4236ffa246773f0e8df0dca3bcf9fc594d50c")
     add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
+    add_configs("asserts", {description = "Enable asserts.", default = false, type = "boolean"})
 
     on_install(function (package)
         if package:has_tool("cxx", "cl", "clang_cl") then
@@ -22,6 +23,7 @@ package("concerto-core")
         configs.tests = false
         configs.mode = package:is_debug() and "debug" or "release"
         configs.override_runtime = false
+        configs.asserts = package:config("asserts")
 
         import("package.tools.xmake").install(package, configs)
     end)

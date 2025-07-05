@@ -5,7 +5,7 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2025.07.04+1", "2c837e2b8ea534840cacb66ad94aade315a8f195")
+    add_versions("2025.07.05", "1acbbc4620b1deede5687597051852b5eca697ed")
     add_deps("concerto-core", "toml11")
 
     on_install(function (package)

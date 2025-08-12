@@ -3,9 +3,10 @@ package("concerto-core")
     set_description("Concerto engine core library")
     set_license("MIT")
     set_kind("library")
+
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
+
     add_versions("2025.08.12", "c6f42aaf5a1448bf2b06293cc35ee912dfd5362c")
-    add_deps("enet")
 
     add_configs("shared", {description = "Build shared library.", default = false, type = "boolean"})
     add_configs("asserts", {description = "Enable asserts.", default = false, type = "boolean"})

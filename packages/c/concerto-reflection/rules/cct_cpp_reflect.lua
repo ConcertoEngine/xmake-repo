@@ -1,5 +1,5 @@
-rule("cpp_reflect")
-    add_deps("find_cct_pkg_generator")
+rule("cct_cpp_reflect")
+    add_deps("@concerto-reflection/find_cct_pkg_generator")
     set_extensions(".hpp")
 
     on_config(function (target)

@@ -7,9 +7,7 @@ package("concerto-reflection")
 
     add_versions("2025.09.28+1", "6034710c2c84c1ad1db9c10b2f6c124cdd27b9a3")
     
-    add_deps("toml11", "cxxopts")
     add_deps("concerto-core", {configs = {asserts = true, shared = false}})
-    add_deps("libllvm", {configs = {clang = true} })
 
     on_install(function (package)
         import("package.tools.xmake").install(package)

@@ -5,7 +5,7 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2025.10.11", "57c1d2ed3abbc3e36f27a36808eba8a8e5387b06")
+    add_versions("2025.10.11+1", "aa7cff985421db57fc0ce1e0f5c676d26d4606a7")
     
     add_deps("concerto-core", {configs = {asserts = true, shared = false}})
 

@@ -1,5 +1,5 @@
 rule("cct_cpp_reflect")
-    add_deps("@concerto-reflection/find_cct_pkg_generator")
+    add_deps("find_cct_pkg_generator")
     set_extensions(".hpp")
 
     on_config(function (target)
@@ -10,25 +10,27 @@ rule("cct_cpp_reflect")
         target:add("files", generatedCpp, {always_added = true})
         target:add("includedirs", target:autogendir(), {public = true})
         target:add("defines", path.basename(targetName):upper() .. "_BUILD", { public = false })
-        print ("Reflection: Will generate " .. generatedCpp)
     end)
 
-    before_buildcmd_files(function (target, batchcmds, headers, opt)
+    before_buildcmd_files(function (target, batchcmds, sourcebatch, opt)
         import("core.project.project")
         import("core.language.language")
         import("core.tool.compiler")
-        print("Generating reflection code for target " .. target:name())
+        import("core.tool.toolchain")
+
         local cctPkgGen = target:data("concerto-pkg-generator")
         assert(cctPkgGen, "concerto-pkg-generator not found!")
         local envs = target:data("concerto-pkg-generator-envs")
-        local outputCppFile = path.join(target:autogendir(), target:name() .. "gen.cpp")
 
-        batchcmds:show_progress(opt.progress, "${color.build.object}compiling.reflection")
         local targetName = target:name():gsub("-(%a)", function(c) return c:upper() end):gsub("^%a", string.upper)
+        local outputCppFile = path.join(target:autogendir(), targetName .. "Package.gen.cpp")
+        local outHppFile = path.join(target:autogendir(), targetName .. "Package.gen.hpp")
+
+        batchcmds:show_progress(opt.progress, "${color.build.object}compiling.reflection." .. target:name())
         local args = { target:autogendir() }
 
         table.insert(args, "-DCCT_REFLECTION_PKG_GENERATOR_BUILD")
-        for _, header in ipairs(headers.sourcefiles) do
+        for _, header in ipairs(sourcebatch.sourcefiles) do
             table.insert(args, "-s" .. header)
         end
 
@@ -71,29 +73,22 @@ rule("cct_cpp_reflect")
         end
 
         process_target(target, args, true)
-        local include_dirs = target:get("includedirs")
+        
         for _, header in ipairs(target:get("headerfiles")) do
-            local real_path = header:gsub("[%(%)]", "")
-            
-            header = header:gsub("[%(%)]", "")
-            for _, file_path in ipairs(os.files(real_path)) do
-                for _, inc in ipairs(include_dirs) do
-                    if file_path:startswith(inc) then
-                        file_path = file_path:sub(#inc + 2)
-                    end
-                end
-                if file_path == targetName .. "Package.gen.hpp" then
-                    -- skip generated file
-                    print("Reflection: Skipping generated header " .. file_path)
-                else
-                    table.insert(args, "-H" .. file_path)
-                end
+            for _, file_path in ipairs(os.filedirs(header)) do
+                file_path = file_path:gsub("[%(%)]", "")
+                table.insert(args, "-H" .. file_path)
             end
         end
+        
+        local libllvm = project.required_package("libllvm")
+        assert(libllvm, "libllvm not found!")
+        local llvm_include = path.join(libllvm:installdir(), "lib", "clang", libllvm:version():major(), "include")
+        table.insert(args, "-I" .. llvm_include)
 
         batchcmds:vrunv(cctPkgGen.program, args, {envs = envs})
-        batchcmds:add_depfiles(xmlFile)
-        --batchcmds:add_depvalues() todo add version from cabal
+        batchcmds:add_depfiles(sourcebatch.sourcefiles)
         batchcmds:set_depmtime(os.mtime(outputCppFile))
         batchcmds:set_depcache(target:dependfile(outputCppFile))
+        print(target:dependfile(outputCppFile))
     end)

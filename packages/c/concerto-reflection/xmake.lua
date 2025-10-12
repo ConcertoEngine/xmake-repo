@@ -15,7 +15,7 @@ package("concerto-reflection")
 
     on_test(function (package)
         assert(package:check_cxxsnippets({test = [[
-            #include <Concerto/Core/Types.hpp>
+            #include <Concerto/Core/Types/Types.hpp>
             #include <Concerto/Reflection/Reflection.hpp>>
 
             void test() {

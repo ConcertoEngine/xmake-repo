@@ -5,7 +5,7 @@ package("concerto-core")
 
     add_urls("https://github.com/ConcertoEngine/ConcertoCore.git")
 
-    add_versions("2025.10.09", "1ae1c729632ae8274ee0aa7d2ca054bdeed50a84")
+    add_versions("2025.11.26", "3edaabb06a9bcb3fdb092a542ddaf70f6a777818")
 
     add_configs("asserts", {description = "Enable asserts.", default = false, type = "boolean"})
     add_configs("enet", {description = "Enable ENet support.", default = false, type = "boolean"})

@@ -5,7 +5,7 @@ package("concerto-reflection")
     set_kind("library")
     add_urls("https://github.com/ConcertoEngine/ConcertoReflection.git")
 
-    add_versions("2026.01.01", "be1875a8f5e58d1863511f32b4d1135eb4ef6866")
+    add_versions("2026.07.01", "0fbc1e7020bf2c1f0f18abc20559b64c0eb581bc")
 
     add_configs("asserts", {description = "Enable asserts.", default = false, type = "boolean"})
     
